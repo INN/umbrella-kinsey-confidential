@@ -6,7 +6,7 @@ from fabric.api import task
 """
 Base configuration
 """
-env.project_name = ''       # name for the project.
+env.project_name = 'kinseycon'       # name for the project.
 env.hosts = ['localhost', ]
 
 """
