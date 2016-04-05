@@ -1,0 +1,6 @@
+[submodule "tools"]
+	path = tools
+	url = https://github.com/INN/deploy-tools.git
+[submodule "wp-content/themes/largo"]
+	path = wp-content/themes/largo
+	url = https://github.com/INN/Largo.git
