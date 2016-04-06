@@ -1,7 +1,7 @@
 ## Installation
 
 1. Follow these instructions: https://github.com/INN/docs/blob/master/projects/largo/umbrella-setup.md
-	- substitute this repository's URL for the Largo Umbrella's URL: git@bitbucket.org:projectlargo/kinsey-confidential-umbrella.git
+	- substitute this repository's URL for the Largo umbrella's URL: git@bitbucket.org:projectlargo/kinsey-confidential-umbrella.git
 
 2. As an alternative to step 13 in the above process, you can do the following:
 	1. From the root directory of the umbrella, run `vagrant ssh` to connect to the virtualbox
