@@ -9,6 +9,8 @@ Base configuration
 env.project_name = 'kinseycon'       # name for the project.
 env.hosts = ['localhost', ]
 
+env.sftp_deploy = True
+
 try:
     env.domain
 except AttributeError:
