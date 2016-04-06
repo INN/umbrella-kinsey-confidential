@@ -9,3 +9,4 @@
 	3. `wp search-replace "kinseycon.wpengine.com" "vagrant.dev" wp_options`: http://wp-cli.org/commands/search-replace/
 
 3. Don't follow step 14.
+4. Once the site is up and running, and you've logged in, go to Dashboard > Settings > Media and change "Store uploads in this folder" to `/vagrant/wp-content/uploads`
