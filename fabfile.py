@@ -44,13 +44,12 @@ def staging():
     Work on staging environment
     """
     env.settings    = 'staging'
-    env.hosts       = []    # ssh host for staging.
-    env.user        = ''    # ssh user for staging.
-    env.password    = ''    # ssh password for staging.
-    env.domain      = ''
+    env.hosts       = [os.environ['KINSEY_CON_STAGING_SFTP_HOST'], ]    # ssh host for staging.
+    env.user        = os.environ['KINSEY_CON_STAGING_SFTP_USER']    # ssh user for staging.
+    env.password    = os.environ['KINSEY_CON_STAGING_SFTP_PASSWORD']    # ssh password for staging.
+    env.domain      = 'kinseycon.staging.wpengine.com'
     env.port        = 2222
 
-    print(red("This project does not have a staging environment configured!"))
 
 try:
     from local_fabfile import  *
