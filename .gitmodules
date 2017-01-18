@@ -4,6 +4,3 @@
 [submodule "wp-content/themes/largo"]
 	path = wp-content/themes/largo
 	url = https://github.com/INN/Largo.git
-[submodule "wp-content/themes/kinsey-confidential"]
-	path = wp-content/themes/kinsey-confidential
-	url = git@bitbucket.org:projectlargo/theme-kinsey-confidential.git
