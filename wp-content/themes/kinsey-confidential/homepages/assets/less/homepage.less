@@ -1,0 +1,198 @@
+@import "../../../less/_vars.less";
+@transparentbackground: rgba(255, 255, 255, 0.85);
+
+
+/* All of your homepage-specific styles go here */
+.KCon_Layout {
+  .has-thumbnail {
+    position: relative;
+    h5.top-tag {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: @transparentbackground;
+      padding: 4px 10px;
+      z-index: 1001;
+      a {
+      color: @dkgray;
+      }
+    }
+  }
+
+  // Styles for posts in the homepage top
+  .span12 h3 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  .span4 {
+    margin-bottom: 3em;
+    @media (max-width: 768px) {
+	  margin-bottom: 0;
+    }
+  }
+
+  // Styles for any widgets in the top position
+  // ( doubled .widget class because there are two containing div elements, and wordpress automatically inserts classes on *both* of them )
+  .span8 .widget .widget {
+    margin-bottom: 0;
+    h3 {
+	  margin: 0;
+    }
+  }
+
+  // Styles for the posts on the homepage middle
+  .span8 h3 {
+    font-size: 20px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+
+  // generic styles
+  .byline,
+  h5.byline {
+    font-size: 12px;
+    font-family: @sansFontFamily;
+  }
+  .byline .by {
+    display: none;
+  }
+  #sidebar {
+    .byline .by {
+      display: inline;
+    }
+  }
+
+  // The fancy covering top-term bits
+  .span12 .top-tag {
+    float: left;
+    font-weight: normal;
+    background-color: #fff;
+    margin: 0;
+  }
+  
+  // More space between homepage-bottom sotries
+  .post-lead {
+    margin-bottom: 1.5em;
+  }
+
+  @media (max-width: 768px) {
+    .span4, .span8 {
+      clear: both;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  @media (min-width: 769px) {
+    //increase the margin-left of the sidebar to about twice what it is now, and subtract that amount from its width
+    #sidebar {
+      margin-left: 2* 2.12765957%;
+      width: 31.91489361% - 2.12765957%;
+    }
+    .lg-span4 {
+      width: 31.91489361%;
+      *width: 31.41489361%;
+    }
+  }
+  @media (min-width: 959px) {
+    .lg-span4 {
+	  &:nth-child(3n+1) {
+        clear: left;
+        margin-left: 0;
+      }
+    }
+  }
+  @media (max-width: 960px) {
+    .sm-span6 {
+      width: 48.93617021%;
+      *width: 48.43617021%;
+      &:nth-child(2n+1) {
+        clear: left;
+        margin-left: 0;
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    .sm-span6 {
+      width: 100%;
+      margin: 0;
+    }
+  }
+  #nav-below {
+    .clearfix;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+
+  // An annoying utility class
+  .clearfix {
+    clear: both;
+  }
+}
+
+// podcast player
+.wp-playlist {
+  font-family: @sansFontFamily;
+  margin-bottom: 0 !important;
+  .wp-playlist-tracks {
+	.wp-playlist-item,
+	.wp-playlist-item-title,
+	.wp-playlist-item-length {
+      line-height: 2.5;
+    }
+  }
+  .wp-playlist-item-title {
+    font-size: 15px;
+  }
+  .wp-playlist-current-item img {
+    max-width: 120px !important;
+  }
+  .wp-playlist-current-item {
+    height: auto;
+    .wp-playlist-item-title {
+      font-size: 20px;
+      overflow: visible;
+      text-overflow: inherit;
+      white-space: normal;
+    }
+  }
+  .wp-playlist-caption {
+    overflow: visible;
+    text-overflow: inherit;
+    white-space: normal;  
+    &:hover {
+	  color: @midnight;
+    }
+  }
+  .wp-playlist-item-artist {
+    font-family: @lightFontFamily;
+    font-size: 13px;
+  }
+  @media (max-width: 1170px) {
+    .wp-playlist-item-artist {
+	  display: none;
+    }
+  }
+  @media (max-width: 960px) {  
+    .wp-playlist-item-length {
+	  display: none;
+	}
+  }
+}
+.podcast-subscribe {
+  clear: both;
+  text-align: center;
+  font-family: @sansFontFamily;
+  background-color: @midnight;
+  line-height: 3;
+  margin-bottom: 2em;
+  a {
+    color: #fff;
+  }
+  &:hover {
+    background-color: lighten(@midnight,10%);
+    a {
+	  text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,232 @@
+// Make the header image the full width of the browser
+body {
+  overflow-x: hidden; // Needed because 100vw does not account for scrollbars in most cases
+}
+#page {
+  position: relative;
+}
+#site-header.full-width {
+  // This element is designed to be the full width of the page in all browsers
+  width: 100vw; // Works from IE9 forwards, http://caniuse.com/#search=vw
+  left: 0;
+  margin-left: ~"calc( -50vw + 50% )"; 
+    // Works in this case from IE9 forwards: http://caniuse.com/#search=calc
+    // Divide and multiply are not supported in Android 4.4 and before, so:
+    //     calc( ( 100vw - 100% ) / -2 )
+    //     calc( ( 50vw - 50% ) / -1 )
+    //     calc( ( -50vw + 50% ) )
+    //     calc( -50vw + 50% )
+  clear: both;
+
+  // The background image for this header is defined in the element, with an inline style, so that the theme options can be used to upload an image for the background
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  // For the main nav
+  margin-top: 0;
+  padding-top: 1.5 * @navbarHeight;
+
+  // Ensure that the widgets maintain the appearance of being in the main column.
+  aside {
+    float: right;
+
+    // Here we cannot use 50%, since the referenced parent element is the site-header and so calc(50vw-50%) = 0. 
+    // So we calculate the margins by subtracting the known width of #page (from the css) from the 50% width.
+    // Down to 1210px, the width of the main column is max-width 1170px with 20px padding on either side
+    // Below 1210px, we must merely maintain 20px visual padding
+    // Half 1170 is 585
+    @media (min-width: 1210px) {
+      padding-right: ~"calc( 50% - 585px )";
+    }
+    @media (max-width: 1209px) {
+      padding-right: 20px;
+      
+    }
+    @media (max-width: 1250px) {
+	  max-width: 30%;
+    }
+    p {
+      font-family: @sansFontFamily;
+      font-size: 14px;
+    }
+
+  }
+
+  h1 {
+    float: left;
+    margin-bottom: 0;
+    background-color: @white;
+    padding: 20px;
+    font-size: 38px;
+    a {
+	  color: #111;
+	  &:hover {
+	    text-decoration: none;
+	    color: #333;
+	  }
+    }
+    strong {
+	  font-family: @sansFontFamily;
+	  font-weight: bold;
+    }
+  }
+  #subtitle-description {
+    float: left;
+    clear: left;
+    margin-right: 0;
+    
+    // same positioning hack as above, but on the left side this time
+    @media (min-width: 1210px) {
+      padding-left: ~"calc( 50% - 585px )";
+    }
+    @media (max-width: 1209px) {
+      padding-left: 20px;
+    }
+    @media (min-width: 769px) {
+      width: 40%;
+    }
+    @media (min-width: 1800px) {
+	  width: 30%;
+    }
+  }
+}
+
+#site-header.full-width h1,
+#subtitle-description .subtitle,
+.nav-shelf .site-name,
+.nav-left .site-name {
+  text-transform: uppercase;
+  font-family: @lightFontFamily;
+  font-weight: normal;
+  strong,
+  b {
+    font-family: @sansFontFamily;
+    font-weight: bold;  
+  }
+}
+
+.header-bg {
+  background-color: rgba(255,255,255,0.65);
+}
+
+#subtitle-description {
+  .subtitle span,
+  .description span {
+    .header-bg;
+  }
+  .subtitle {
+    margin-top: 2em;
+    font-size: 1.5em;
+  }
+  .description {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.1em;
+  }
+}
+
+#header-give-now {
+  .btn {
+    font-size: 16px;
+    padding-left: 0;
+    padding-right: 0;
+    background: @white;
+    color: @crimson;
+    text-transform: uppercase;
+    font-family: @sansFontFamily;
+    border-radius: 0.25em;
+    &:hover {
+      color: @red;
+    }
+    display: block;
+    width: 30%;
+    box-sizing: border-box;
+    float: left;
+  }
+  p {
+    color: #333;
+    display: block;
+    width: 65%;
+    box-sizing: border-box;
+    float: right;
+  }
+}
+#main-nav {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  &.navbar {
+    border: 0;
+  }
+  .nav-shelf {
+    text-transform: uppercase;
+  }
+}
+.navbar .nav {
+  .header-bg;
+}
+.navbar .navbar-inner {
+  background-color: transparent;
+  font-size: 18px;
+  .nav li {
+    padding-left: 10px;
+    padding-right: 10px;
+    > a {
+	  line-height: 20px;
+	  margin-top: 10px;
+	  padding-left: 0;
+	  padding-right: 0;
+	}
+    a:hover,
+    &.active a {
+      border-bottom: 5px @red solid;
+      color: #111;
+      background-color: transparent;
+    }
+  }
+}
+#header-social-links {
+  background-color: @black;
+  color: @white;
+  a {
+    color: @white;
+    &:hover {
+      color: @blue;
+    }
+  }
+  float: right;
+  position: relative;
+  right: 0;
+  margin: 0;
+}
+.sticky-navbar {
+  .home-link {
+    display: none;
+  }
+  #header-social i:hover {
+    color: @dkgray !important; 
+  } 
+}
+@media (max-width: 768px) {
+  #site-header.full-width {
+    display: block;
+    padding-top: 0;
+    h1.sitename,
+    aside {
+	  display: none;
+    }
+    #subtitle-description {
+	  padding-right: 20px;
+	  .subtitle {
+	    font-size: 1.2em;
+	    margin-top: 20px;
+	  }
+	  .description {
+        font-size: 0.85em;
+	  }
+    }
+  }
+  
+}

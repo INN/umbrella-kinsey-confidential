@@ -1,0 +1,76 @@
+.widgettitle {
+  font-family: @sansFontFamily;
+  font-weight: normal;
+  color: @black;
+}
+
+// Centered widget title with underline for the recent posts widget in the sidebar
+#sidebar .largo-recent-posts {
+  border: 1px solid @gray;
+  padding: 24px;
+
+  .widgettitle {
+    text-align: center;
+
+    margin-bottom: 0.5em;
+    &::after {
+      background-color: @black;
+      width: 3.5em;
+      height: 0.3em;
+      content: "";
+      display: block;
+      text-align: inherit;
+      clear: both;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: .6em;
+    }
+  }
+}
+
+#topic-nav {
+  line-height: 2.35;
+  li {
+    display: inline;
+    padding: 6px 10px;
+    background-color: #49AFC7;
+    font-family: @sansFontFamily;
+    white-space: nowrap;
+    &:hover {
+	  background-color: lighten(#49AFC7, 10%);
+    }
+    a {
+	  color: @white;
+	  &:hover {
+	    text-decoration: none;
+	  }
+    }
+  }	
+}
+
+#sidebar .gform_wrapper {
+  margin: 0;
+  max-width: 100%;
+  li {
+    margin-bottom: 0.25em;
+  }
+  .top_label .gfield_label {
+    display: none;
+  }
+  .gform_footer {
+    padding-top: 0 !important;
+    input[type=submit] {
+	  padding: 10px 20px;
+	  background-color: @crimson;
+	  font-family: @sansFontFamily;
+	  border: none;
+	  color: @white;
+	  &:hover {
+	    background-color: lighten(@crimson,10%);
+	  }
+    }
+  }
+}
+.textwidget p {
+  margin-bottom: 12px;
+}
